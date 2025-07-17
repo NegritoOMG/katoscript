@@ -1,0 +1,18 @@
+local a={"ABC123","DEF456","KEY789"}local b="https://workink.net/Yw/keyscript"local c="https://discord.gg/8uJDJaYNvw"local d="https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"
+if game.CoreGui:FindFirstChild("KeySystemUI")then game.CoreGui.KeySystemUI:Destroy()end
+if game.Lighting:FindFirstChild("KeyBlur")then game.Lighting.KeyBlur:Destroy()end
+local e=Instance.new("BlurEffect",game.Lighting)e.Size=18 e.Name="KeyBlur"
+local f=Instance.new("ScreenGui",game.CoreGui)f.Name="KeySystemUI"f.ResetOnSpawn=false
+local g=Instance.new("Frame",f)g.BackgroundColor3=Color3.fromRGB(25,25,30)g.Size=UDim2.new(0,320,0,220)g.Position=UDim2.new(0.5,-160,0.5,-110)g.AnchorPoint=Vector2.new(0.5,0.5)g.BorderSizePixel=0 g.Active=true g.Draggable=true Instance.new("UICorner",g).CornerRadius=UDim.new(0,12)
+local h=Instance.new("UIStroke",g)h.Color=Color3.fromRGB(0,0,0)h.Thickness=2 h.Transparency=0.5 h.ApplyStrokeMode=Enum.ApplyStrokeMode.Border
+local i=Instance.new("TextButton",g)i.Text="X"i.Font=Enum.Font.GothamBold i.TextSize=16 i.TextColor3=Color3.new(1,1,1)i.BackgroundColor3=Color3.fromRGB(255,60,60)i.Size=UDim2.new(0,30,0,30)i.Position=UDim2.new(1,-35,0,5)i.ZIndex=2 Instance.new("UICorner",i).CornerRadius=UDim.new(1,0)
+i.MouseButton1Click:Connect(function()e:Destroy()f:Destroy()end)
+local j=Instance.new("TextLabel",g)j.Text="Enter Access Key"j.Font=Enum.Font.GothamBold j.TextSize=20 j.TextColor3=Color3.new(1,1,1)j.BackgroundTransparency=1 j.Size=UDim2.new(1,0,0,40)j.Position=UDim2.new(0,0,0,10)
+local k=Instance.new("TextBox",g)k.PlaceholderText="Enter your key here"k.Font=Enum.Font.Gotham k.TextSize=16 k.Text=""k.ClearTextOnFocus=false k.TextColor3=Color3.new(1,1,1)k.BackgroundColor3=Color3.fromRGB(40,40,45)k.Size=UDim2.new(0.9,0,0,35)k.Position=UDim2.new(0.05,0,0,50)Instance.new("UICorner",k).CornerRadius=UDim.new(0,8)
+local l=Instance.new("TextButton",g)l.Text="Submit"l.Font=Enum.Font.GothamBold l.TextSize=16 l.TextColor3=Color3.new(1,1,1)l.BackgroundColor3=Color3.fromRGB(0,153,255)l.Size=UDim2.new(0.42,0,0,35)l.Position=UDim2.new(0.05,0,0,95)Instance.new("UICorner",l).CornerRadius=UDim.new(0,8)
+local m=Instance.new("TextButton",g)m.Text="Get Key Link"m.Font=Enum.Font.GothamBold m.TextSize=16 m.TextColor3=Color3.new(1,1,1)m.BackgroundColor3=Color3.fromRGB(0,204,102)m.Size=UDim2.new(0.42,0,0,35)m.Position=UDim2.new(0.53,0,0,95)Instance.new("UICorner",m).CornerRadius=UDim.new(0,8)
+local n=Instance.new("TextButton",g)n.Text="Join Discord"n.Font=Enum.Font.GothamBold n.TextSize=16 n.TextColor3=Color3.new(1,1,1)n.BackgroundColor3=Color3.fromRGB(114,137,218)n.Size=UDim2.new(0.9,0,0,35)n.Position=UDim2.new(0.05,0,0,140)Instance.new("UICorner",n).CornerRadius=UDim.new(0,8)
+local function o(p)for _,q in ipairs(a)do if p==q then return true end end return false end
+l.MouseButton1Click:Connect(function()if o(k.Text)then e:Destroy()f:Destroy()loadstring(game:HttpGet(d))()else k.Text=""k.PlaceholderText="Incorrect key. Try again."end end)
+m.MouseButton1Click:Connect(function()setclipboard(b)game.StarterGui:SetCore("SendNotification",{Title="Link Copied",Text="Paste it in your browser.",Duration=4})end)
+n.MouseButton1Click:Connect(function()setclipboard(c)game.StarterGui:SetCore("SendNotification",{Title="Discord Link Copied",Text="Paste it in your browser or Discord.",Duration=6})end)
