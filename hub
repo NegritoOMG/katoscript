@@ -1,6 +1,7 @@
 local a=game:GetService("Players")local b=game:GetService("Lighting")local c=a.LocalPlayer
 local d={"BRAIN-5XG1Q","BRAIN-7LK9D","BRAIN-2PM8Z","BRAIN-XQ4A1","BRAIN-9TY3V","BRAIN-MK7P2","BRAIN-4QZ8F","BRAIN-1L2KC","BRAIN-6ZD3X","BRAIN-VQ9N5","BRAIN-LP5A8","BRAIN-JX3QB","BRAIN-N4F2M","BRAIN-Y8ZQ1","BRAIN-B9T7K","BRAIN-QX6VP","BRAIN-3Y2LR","BRAIN-A5K9P","BRAIN-ZQ1ND","BRAIN-PX4J8"}
-local e={}local f="https://discord.gg/8uJDJaYNvw"local g="https://youtu.be/Y9mDOgGg2C0"local h="https://lootdest.org/s?Ti8W0KKP"
+local e={}local f="https://discord.gg/8uJDJaYNvw"local g="https://youtu.be/Y9mDOgGg2C0"local h="
+https://loot-link.com/s?RvDNVnIj"
 local i=Instance.new("ScreenGui",c.PlayerGui)i.Name="BRAINUI"i.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
 local j=Instance.new("BlurEffect")j.Size=10 j.Name="BrainBlur"j.Parent=b
 local function k()if b:FindFirstChild("BrainBlur")then b.BrainBlur:Destroy()end i:Destroy()end
