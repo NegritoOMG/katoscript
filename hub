@@ -1,145 +1,207 @@
-local p1, p2, p3 = game:GetService, "Players", "Lighting"
-local s1, s2 = p1(p2), p1(p3)
-local l1 = s1.LocalPlayer
-local k = {
+esta version que me diste si lo ejecuta: local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
+local LocalPlayer = Players.LocalPlayer
+
+local validKeys = {
   "BRAIN-5XG1Q","BRAIN-7LK9D","BRAIN-2PM8Z","BRAIN-XQ4A1","BRAIN-9TY3V",
   "BRAIN-MK7P2","BRAIN-4QZ8F","BRAIN-1L2KC","BRAIN-6ZD3X","BRAIN-VQ9N5",
   "BRAIN-LP5A8","BRAIN-JX3QB","BRAIN-N4F2M","BRAIN-Y8ZQ1","BRAIN-B9T7K",
   "BRAIN-QX6VP","BRAIN-3Y2LR","BRAIN-A5K9P","BRAIN-ZQ1ND","BRAIN-PX4J8"
 }
-local u, d, t, l = {}, "https://discord.gg/8uJDJaYNvw", "https://youtu.be/Y9mDOgGg2C0", "
+
+local usedKeys = {}
+
+local discordLink = "https://discord.gg/8uJDJaYNvw"
+local tutorialLink = "https://youtu.be/Y9mDOgGg2C0"
+local keyLink = "
 https://lootdest.org/s?Ti8W0KKP"
 
-local g = Instance.new("ScreenGui", l1:WaitForChild("PlayerGui"))
-g.Name = "BRAINUI"
-g.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local gui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
+gui.Name = "BRAINUI"
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local b = Instance.new("BlurEffect")
-b.Size = 10
-b.Name = "BrainBlur"
-b.Parent = s2
+local blur = Instance.new("BlurEffect")
+blur.Size = 10
+blur.Name = "BrainBlur"
+blur.Parent = Lighting
 
-local function q() if s2:FindFirstChild("BrainBlur") then s2.BrainBlur:Destroy() end g:Destroy() end
-
-local f = Instance.new("Frame", g)
-f.Size = UDim2.new(0, 340, 0, 370)
-f.Position = UDim2.new(0.5, -170, 0.5, -185)
-f.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
-f.BackgroundTransparency = 0.05
-f.Active, f.Draggable = true, true
-Instance.new("UICorner", f).CornerRadius = UDim.new(0, 12)
-local s = Instance.new("UIStroke", f)
-s.Color, s.Thickness, s.Transparency = Color3.fromRGB(100, 0, 255), 2, 0.1
-
-local i = Instance.new("ImageLabel", f)
-i.Size, i.Position = UDim2.new(0, 70, 0, 70), UDim2.new(0.5, -35, 0, 10)
-i.BackgroundTransparency = 1
-i.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..l1.UserId.."&width=100&height=100&format=png"
-
-local t1 = Instance.new("TextLabel", f)
-t1.Size, t1.Position = UDim2.new(1, -20, 0, 30), UDim2.new(0, 10, 0, 85)
-t1.Text = "🧠 STEAL A BRAINROTS KEY SYSTEM"
-t1.Font = Enum.Font.GothamBold
-t1.TextSize = 18
-t1.TextColor3 = Color3.fromRGB(255, 255, 255)
-t1.BackgroundTransparency = 1
-
-local kb = Instance.new("TextBox", f)
-kb.Size, kb.Position = UDim2.new(0.8, 0, 0, 38), UDim2.new(0.1, 0, 0, 125)
-kb.PlaceholderText, kb.Font = "Enter your key here...", Enum.Font.Gotham
-kb.TextSize, kb.Text = 16, ""
-kb.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
-kb.TextColor3 = Color3.fromRGB(255, 255, 255)
-Instance.new("UICorner", kb).CornerRadius = UDim.new(0, 8)
-
-local vB = Instance.new("TextButton", f)
-vB.Size, vB.Position = UDim2.new(0.8, 0, 0, 38), UDim2.new(0.1, 0, 0, 175)
-vB.Text, vB.Font = "🔒 Verify Key", Enum.Font.GothamBold
-vB.TextSize, vB.BackgroundColor3 = 16, Color3.fromRGB(140, 40, 200)
-vB.TextColor3 = Color3.fromRGB(255, 255, 255)
-Instance.new("UICorner", vB).CornerRadius = UDim.new(0, 8)
-
-local gB = Instance.new("TextButton", f)
-gB.Size, gB.Position = UDim2.new(0.8, 0, 0, 34), UDim2.new(0.1, 0, 0, 225)
-gB.Text, gB.Font, gB.TextSize = "🧠 Get Key", Enum.Font.Gotham, 14
-gB.BackgroundColor3, gB.TextColor3 = Color3.fromRGB(30, 30, 45), Color3.fromRGB(200, 200, 255)
-Instance.new("UICorner", gB).CornerRadius = UDim.new(0, 8)
-
-local tB = Instance.new("TextButton", f)
-tB.Size, tB.Position = UDim2.new(0.8, 0, 0, 34), UDim2.new(0.1, 0, 0, 270)
-tB.Text, tB.Font, tB.TextSize = "📘 Key Tutorial", Enum.Font.Gotham, 14
-tB.BackgroundColor3, tB.TextColor3 = Color3.fromRGB(30, 30, 45), Color3.fromRGB(200, 200, 255)
-Instance.new("UICorner", tB).CornerRadius = UDim.new(0, 8)
-
-local dB = Instance.new("TextButton", f)
-dB.Size, dB.Position = UDim2.new(0.8, 0, 0, 34), UDim2.new(0.1, 0, 0, 315)
-dB.Text, dB.Font, dB.TextSize = "💬 Join Discord", Enum.Font.Gotham, 14
-dB.BackgroundColor3, dB.TextColor3 = Color3.fromRGB(30, 30, 45), Color3.fromRGB(150, 200, 255)
-Instance.new("UICorner", dB).CornerRadius = UDim.new(0, 8)
-
-local x = Instance.new("TextButton", f)
-x.Size, x.Position = UDim2.new(0, 26, 0, 26), UDim2.new(1, -36, 0, 10)
-x.Text, x.Font, x.TextSize = "X", Enum.Font.GothamBold, 14
-x.BackgroundColor3, x.TextColor3 = Color3.fromRGB(50, 50, 60), Color3.fromRGB(255, 80, 80)
-Instance.new("UICorner", x).CornerRadius = UDim.new(1, 0)
-
-local n = Instance.new("TextLabel", g)
-n.Size, n.Position = UDim2.new(0, 250, 0, 30), UDim2.new(0.5, -125, 1, -60)
-n.BackgroundColor3, n.TextSize = Color3.fromRGB(30, 30, 40), 14
-n.Font, n.TextColor3 = Enum.Font.Gotham, Color3.fromRGB(255, 255, 255)
-n.Visible = false
-Instance.new("UICorner", n).CornerRadius = UDim.new(0, 8)
-
-local function m(msg, d)
-	n.Text, n.Visible = msg, true
-	n.BackgroundTransparency, n.TextTransparency = 0.2, 0
-	n:TweenPosition(UDim2.new(0.5, -125, 1, -90), "Out", "Quad", 0.3, true)
-	task.wait(d or 2)
-	n:TweenPosition(UDim2.new(0.5, -125, 1, -60), "Out", "Quad", 0.3, true)
-	n.Visible = false
+local function closeUI()
+	if Lighting:FindFirstChild("BrainBlur") then
+		Lighting.BrainBlur:Destroy()
+	end
+	gui:Destroy()
 end
 
-vB.MouseButton1Click:Connect(function()
-	local ik = kb.Text
-	if u[l1.UserId] then
-		m("✅ You already used a key.")
+-- UI Frame
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 340, 0, 370)
+frame.Position = UDim2.new(0.5, -170, 0.5, -185)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+frame.BackgroundTransparency = 0.05
+frame.Active = true
+frame.Draggable = true
+
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
+local stroke = Instance.new("UIStroke", frame)
+stroke.Color = Color3.fromRGB(100, 0, 255)
+stroke.Thickness = 2
+stroke.Transparency = 0.1
+
+-- Avatar
+local avatar = Instance.new("ImageLabel", frame)
+avatar.Size = UDim2.new(0, 70, 0, 70)
+avatar.Position = UDim2.new(0.5, -35, 0, 10)
+avatar.BackgroundTransparency = 1
+avatar.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. LocalPlayer.UserId .. "&width=100&height=100&format=png"
+
+-- Title
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, -20, 0, 30)
+title.Position = UDim2.new(0, 10, 0, 85)
+title.Text = "🧠 STEAL A BRAINROTS KEY SYSTEM"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 18
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1
+
+-- Key Input
+local keyBox = Instance.new("TextBox", frame)
+keyBox.Size = UDim2.new(0.8, 0, 0, 38)
+keyBox.Position = UDim2.new(0.1, 0, 0, 125)
+keyBox.PlaceholderText = "Enter your key here..."
+keyBox.Font = Enum.Font.Gotham
+keyBox.TextSize = 16
+keyBox.Text = ""
+keyBox.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", keyBox).CornerRadius = UDim.new(0, 8)
+
+-- Verify Key Button
+local verifyBtn = Instance.new("TextButton", frame)
+verifyBtn.Size = UDim2.new(0.8, 0, 0, 38)
+verifyBtn.Position = UDim2.new(0.1, 0, 0, 175)
+verifyBtn.Text = "🔒 Verify Key"
+verifyBtn.Font = Enum.Font.GothamBold
+verifyBtn.TextSize = 16
+verifyBtn.BackgroundColor3 = Color3.fromRGB(140, 40, 200)
+verifyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", verifyBtn).CornerRadius = UDim.new(0, 8)
+
+-- Get Key
+local getKeyBtn = Instance.new("TextButton", frame)
+getKeyBtn.Size = UDim2.new(0.8, 0, 0, 34)
+getKeyBtn.Position = UDim2.new(0.1, 0, 0, 225)
+getKeyBtn.Text = "🧠 Get Key"
+getKeyBtn.Font = Enum.Font.Gotham
+getKeyBtn.TextSize = 14
+getKeyBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
+getKeyBtn.TextColor3 = Color3.fromRGB(200, 200, 255)
+Instance.new("UICorner", getKeyBtn).CornerRadius = UDim.new(0, 8)
+
+-- Tutorial
+local tutorialBtn = Instance.new("TextButton", frame)
+tutorialBtn.Size = UDim2.new(0.8, 0, 0, 34)
+tutorialBtn.Position = UDim2.new(0.1, 0, 0, 270)
+tutorialBtn.Text = "📘 Key Tutorial"
+tutorialBtn.Font = Enum.Font.Gotham
+tutorialBtn.TextSize = 14
+tutorialBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
+tutorialBtn.TextColor3 = Color3.fromRGB(200, 200, 255)
+Instance.new("UICorner", tutorialBtn).CornerRadius = UDim.new(0, 8)
+
+-- Discord
+local discordBtn = Instance.new("TextButton", frame)
+discordBtn.Size = UDim2.new(0.8, 0, 0, 34)
+discordBtn.Position = UDim2.new(0.1, 0, 0, 315)
+discordBtn.Text = "💬 Join Discord"
+discordBtn.Font = Enum.Font.Gotham
+discordBtn.TextSize = 14
+discordBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 45)
+discordBtn.TextColor3 = Color3.fromRGB(150, 200, 255)
+Instance.new("UICorner", discordBtn).CornerRadius = UDim.new(0, 8)
+
+-- Close Button
+local closeBtn = Instance.new("TextButton", frame)
+closeBtn.Size = UDim2.new(0, 26, 0, 26)
+closeBtn.Position = UDim2.new(1, -36, 0, 10)
+closeBtn.Text = "X"
+closeBtn.Font = Enum.Font.GothamBold
+closeBtn.TextSize = 14
+closeBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+closeBtn.TextColor3 = Color3.fromRGB(255, 80, 80)
+Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(1, 0)
+
+-- Notification Label
+local notif = Instance.new("TextLabel", gui)
+notif.Size = UDim2.new(0, 250, 0, 30)
+notif.Position = UDim2.new(0.5, -125, 1, -60)
+notif.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+notif.Text = ""
+notif.TextSize = 14
+notif.Font = Enum.Font.Gotham
+notif.TextColor3 = Color3.fromRGB(255, 255, 255)
+notif.Visible = false
+Instance.new("UICorner", notif).CornerRadius = UDim.new(0, 8)
+
+-- Mostrar mensajes
+local function showMessage(msg, duration)
+	notif.Text = msg
+	notif.Visible = true
+	notif.BackgroundTransparency = 0.2
+	notif.TextTransparency = 0
+	notif:TweenPosition(UDim2.new(0.5, -125, 1, -90), "Out", "Quad", 0.3, true)
+	task.wait(duration or 2)
+	notif:TweenPosition(UDim2.new(0.5, -125, 1, -60), "Out", "Quad", 0.3, true)
+	notif.Visible = false
+end
+
+-- VERIFICAR CLAVE Y CARGAR SCRIPT
+verifyBtn.MouseButton1Click:Connect(function()
+	local inputKey = keyBox.Text
+	if usedKeys[LocalPlayer.UserId] then
+		showMessage("✅ You already used a key.")
 	else
 		local valid = false
-		for i, v in ipairs(k) do
-			if ik == v then
+		for i, key in ipairs(validKeys) do
+			if inputKey == key then
 				valid = true
-				table.remove(k, i)
-				u[l1.UserId] = true
-				m("🧠 Access granted.")
-				q()
-				local r = game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua")
-				loadstring(r)()
+				table.remove(validKeys, i)
+				usedKeys[LocalPlayer.UserId] = true
+				showMessage("🧠 Access granted.")
+				closeUI()
+
+				-- Aquí se carga el script de GitHub
+				local url = "https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"
+				local response = game:HttpGet(url)
+				print("Script cargado correctamente") -- para debug
+				loadstring(response)()
 				break
 			end
 		end
 		if not valid then
-			vB.Text = "❌ Invalid Key"
+			verifyBtn.Text = "❌ Invalid Key"
 			task.wait(1)
-			vB.Text = "🔒 Verify Key"
+			verifyBtn.Text = "🔒 Verify Key"
 		end
 	end
 end)
 
-gB.MouseButton1Click:Connect(function()
-	setclipboard(l)
-	m("📋 Key link copied to clipboard.", 4)
+-- BOTONES AUXILIARES
+getKeyBtn.MouseButton1Click:Connect(function()
+	setclipboard(keyLink)
+	showMessage("📋 Key link copied to clipboard.", 4)
 end)
 
-tB.MouseButton1Click:Connect(function()
-	setclipboard(t)
-	m("📋 Tutorial link copied.", 3)
+tutorialBtn.MouseButton1Click:Connect(function()
+	setclipboard(tutorialLink)
+	showMessage("📋 Tutorial link copied.", 3)
 end)
 
-dB.MouseButton1Click:Connect(function()
-	setclipboard(d)
-	m("📋 Discord link copied.")
+discordBtn.MouseButton1Click:Connect(function()
+	setclipboard(discordLink)
+	showMessage("📋 Discord link copied.")
 end)
 
-x.MouseButton1Click:Connect(function()
-	q()
+closeBtn.MouseButton1Click:Connect(function()
+	closeUI()
 end)
