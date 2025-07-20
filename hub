@@ -7,7 +7,8 @@ local k = {
   "BRAIN-LP5A8","BRAIN-JX3QB","BRAIN-N4F2M","BRAIN-Y8ZQ1","BRAIN-B9T7K",
   "BRAIN-QX6VP","BRAIN-3Y2LR","BRAIN-A5K9P","BRAIN-ZQ1ND","BRAIN-PX4J8"
 }
-local u, d, t, l = {}, "https://discord.gg/8uJDJaYNvw", "https://youtu.be/Y9mDOgGg2C0", "https://loot-link.com/s?RvDNVnIj"
+local u, d, t, l = {}, "https://discord.gg/8uJDJaYNvw", "https://youtu.be/Y9mDOgGg2C0", "
+https://lootdest.org/s?Ti8W0KKP"
 
 local g = Instance.new("ScreenGui", l1:WaitForChild("PlayerGui"))
 g.Name = "BRAINUI"
