@@ -3,11 +3,11 @@ local Lighting = game:GetService("Lighting")
 local LocalPlayer = Players.LocalPlayer
 
 local validKeys = {
-    "BRAINROT-A9X2L","BRAINROT-Z5Q8D","BRAINROT-K3L7V","BRAINROT-Y2T9M",
-    "BRAINROT-N4X5P","BRAINROT-V7L1Q","BRAINROT-XQ3A8","BRAINROT-P9T6K",
-    "BRAINROT-M2K5Z","BRAINROT-B8Y4N","BRAINROT-Q5P9X","BRAINROT-4L7KC",
-    "BRAINROT-9ZD3M","BRAINROT-3Y2LV","BRAINROT-JX6QP","BRAINROT-LP5A7",
-    "BRAINROT-1L2KD","BRAINROT-FX9N5","BRAINROT-A5K9B","BRAINROT-ZQ1NX"
+    "KATO-A9X2L", "KATO-Z5Q8D", "KATO-K3L7V", "KATO-Y2T9M",
+    "KATO-N4X5P", "KATO-V7L1Q", "KATO-XQ3A8", "KATO-P9T6K",
+    "KATO-M2K5Z", "KATO-B8Y4N", "KATO-Q5P9X", "KATO-4L7KC",
+    "KATO-9ZD3M", "KATO-3Y2LV", "KATO-JX6QP", "KATO-LP5A7",
+    "KATO-1L2KD", "KATO-FX9N5", "KATO-A5K9B", "KATO-ZQ1NX"
 }
 
 local usedKeys = {}
@@ -16,17 +16,17 @@ local discordLink = "https://discord.gg/8uJDJaYNvw"
 local keyLink = "https://direct-link.net/124233/XU4uUFgjFMGa"
 
 local gui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
-gui.Name = "BRAINUI"
+gui.Name = "KATOUI"
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local blur = Instance.new("BlurEffect")
 blur.Size = 10
-blur.Name = "BrainBlur"
+blur.Name = "KatoBlur"
 blur.Parent = Lighting
 
 local function closeUI()
-	if Lighting:FindFirstChild("BrainBlur") then
-		Lighting.BrainBlur:Destroy()
+	if Lighting:FindFirstChild("KatoBlur") then
+		Lighting.KatoBlur:Destroy()
 	end
 	gui:Destroy()
 end
@@ -56,7 +56,7 @@ avatar.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..LocalP
 local title = Instance.new("TextLabel", frame)
 title.Size = UDim2.new(1, -20, 0, 30)
 title.Position = UDim2.new(0, 10, 0, 85)
-title.Text = "STEAL A BRAINROT ANTI - HIT"
+title.Text = "KATO SCRIPT - ANTI HIT"
 title.Font = Enum.Font.GothamBold
 title.TextSize = 18
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
